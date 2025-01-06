@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "개트롤 HUB",
+   Name = "개트롤 HUB V1.5",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "기다려어어ㅓㅓ어어어어ㅓㅓ엉ㅋㅋㅋㅋㅋㅋㅋ",
    LoadingSubtitle = "by:개좇같은 로블록스 핵 선생님",
@@ -26,11 +26,11 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "키 얻어ㅓㅓ어어어엉ㅇ엉ㅋㅋㅋㅋㅋㅋ",
       Subtitle = "개트롤 허브에 오신걸 환영햌ㅋㅋㅋㅋㅋㅋㅋ",
-      Note = "키 새끼 : 씨발새끼개트롤", -- Use this to tell the user how to get a key
+      Note = "키 새끼 : flower", -- Use this to tell the user how to get a key
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"씨발새끼개트롤"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"flower"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 
@@ -303,5 +303,21 @@ local Button = Tab:CreateButton({
    Name = "여기에서 더 많은 기능들을 볼수있단다~ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
    Callback = function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))()
+   end,
+})
+
+local Tab = Window:CreateTab("이탭은 칼있는겜 트롤하는 탭이란다 게이야~ ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "칼으로 올킬해애애애ㅐ애앵ㅋㅋㅋㅋㅋㅋㅋ",
+   Callback = function()
+   local range = 1000 local player = game:GetService("Players").LocalPlayer local function isFriendWith(player1, player2) return player1:IsFriendsWith(player2.UserId) end game:GetService("RunService").RenderStepped:Connect(function() local players = game.Players:GetPlayers() for i = 2, #players do local otherPlayer = players[i] local character = otherPlayer.Character if not isFriendWith(player, otherPlayer) then local tool = player.Character and player.Character:FindFirstChildOfClass("Tool") if tool and tool:FindFirstChild("Handle") then tool:Activate() for _, part in next, character:GetChildren() do if part:IsA("BasePart") then firetouchinterest(tool.Handle, part, 0) firetouchinterest(tool.Handle, part, 1) end end end end end end)
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "이건 칼 리치로 더쉽게 ㅌㄹ할수 있는거란다~ ㅋㅋㅋㅋ",
+   Callback = function()
+   loadstring(game:HttpGet('https://pastebin.com/raw/tsbVWZdP'))()
    end,
 })
